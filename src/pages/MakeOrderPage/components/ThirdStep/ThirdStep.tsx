@@ -1,4 +1,4 @@
-import { setSender } from '@/service/MakeOrder';
+import { setReceiver } from '@/service/MakeOrder';
 import { User } from '@/types';
 import { FC } from 'react';
 
@@ -7,27 +7,27 @@ import UserForm from '@/components/UserForm/UserForm';
 import { useAppDispatch, useAppSelector } from '@/shared/store';
 import { Button } from '@/shared/ui';
 
-import st from './SecondaryStep.module.scss';
+import st from './ThirdStep.module.scss';
 
-interface SecondaryStepProps {
+interface ThirdStepProps {
   nextStep: () => void;
   prevStep: () => void;
 }
 
-const SecondaryStep: FC<SecondaryStepProps> = ({ nextStep, prevStep }) => {
-  const { sender } = useAppSelector((state) => state.MakeOrderReducer);
+const ThirdStep: FC<ThirdStepProps> = ({ nextStep, prevStep }) => {
+  const { receiver } = useAppSelector((state) => state.MakeOrderReducer);
   const dispatch = useAppDispatch();
 
   const handleSubmit = (data: User) => {
-    dispatch(setSender(data));
+    dispatch(setReceiver(data));
     nextStep();
   };
 
   return (
     <div className={`container`}>
-      <h2>Отправитель</h2>
+      <h2>Получатель</h2>
       <UserForm
-        defaultValue={sender}
+        defaultValue={receiver}
         className={st.step__body}
         onSubmit={handleSubmit}>
         <div className={st.step__options}>
@@ -43,4 +43,4 @@ const SecondaryStep: FC<SecondaryStepProps> = ({ nextStep, prevStep }) => {
   );
 };
 
-export default SecondaryStep;
+export default ThirdStep;

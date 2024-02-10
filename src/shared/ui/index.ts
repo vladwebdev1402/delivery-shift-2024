@@ -1,4 +1,5 @@
 import Button from './button/Button';
+import Input from './input/Input';
 import HeaderLink from './link/HeaderLink/HeaderLink';
 import Loader from './loader/Loader';
 import Select from './select/Select';
@@ -18,4 +19,5 @@ export {
   TabsGroup,
   Loader,
   Button,
+  Input,
 };

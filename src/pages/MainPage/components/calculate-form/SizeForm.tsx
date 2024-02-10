@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/shared/ui';
-import Input from '@/shared/ui/input/Input';
+import { Button, Input } from '@/shared/ui';
 import { onChangeWithRegexp } from '@/shared/utils';
 
 import st from './CalculateForm.module.scss';
