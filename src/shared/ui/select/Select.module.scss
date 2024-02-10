@@ -7,6 +7,7 @@
   font-weight: 500;
   color: var(--text-secondary);
 }
+
 .select__button {
   text-align: left;
   margin-top: 6px;
@@ -55,7 +56,7 @@
   line-height: 24px;
   color: var(--text-secondary);
   font-size: 16px;
-  padding: 4px 12px;
+  padding: 6px 12px;
   width: 100%;
   text-align: left;
   &:hover {
@@ -76,11 +77,29 @@
   text-decoration: underline;
 }
 
+.select__error {
+  font-size: 14px;
+  color: var(--indicator-error);
+  margin-top: 4px;
+}
+
+.select_openUp {
+  .select__body {
+    bottom: 84%;
+  }
+}
+
 .select_open {
   .select__body {
     display: block;
   }
   .select__arrow {
     transform: rotate(180deg);
+  }
+}
+
+.select_error {
+  .select__button {
+    border: 1px solid var(--indicator-error);
   }
 }

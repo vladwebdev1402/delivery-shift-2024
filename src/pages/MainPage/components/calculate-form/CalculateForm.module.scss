@@ -5,6 +5,42 @@
     flex-grow: 1;
 }
 
-.calculate__select {
+.calculate__item {
     margin-top: 24px;
+}
+
+.skeleton {
+    margin-top: 24px;
+    height: 50px;
+}
+
+.calculate__tabs {
+    width: 100%;
+    flex-wrap: nowrap;
+    margin-top: 4px;
+}
+
+.calculate__tab {
+    width: 100%;
+}
+
+.size {
+    padding: 8px 20px;
+}
+
+.size__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.size__title {
+    color: var(--text-secondary);
+    width: 72px;
+    flex-shrink: 0;
+}
+
+.size__btn {
+    margin-top: 16px;
 }

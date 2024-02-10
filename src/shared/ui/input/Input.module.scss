@@ -1,0 +1,48 @@
+.input {
+    display: block;
+    input {
+      margin-top: 6px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      font-size: 16px;
+      padding: 12px;
+      &:focus {
+        outline: none;
+        border: 2px solid var(--brand);
+      }
+  
+      &:disabled {
+        background-color: var(--bg-disabled);
+        cursor: not-allowed;
+      }
+    }
+  
+  }
+  
+  .input__label {
+    display: block;
+    font-size: 14px;
+  }
+  
+  .input_fullWidth {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+  
+  .input__hint {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+  }
+  
+  .input_error {
+    input {
+      border: 2px solid var(--indicator-error);
+    }
+    .input__hint {
+      color: var(--indicator-error);
+    }
+  }
