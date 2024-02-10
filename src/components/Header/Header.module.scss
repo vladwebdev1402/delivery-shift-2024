@@ -1,0 +1,9 @@
+.header {
+  padding: 24px 0px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header__nav {
+  display: flex;
+  gap: 36px;
+}

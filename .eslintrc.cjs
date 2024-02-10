@@ -8,8 +8,8 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:import/recommended",
+    // "plugin:prettier/recommended",
+    // "plugin:import/recommended",
     "prettier"      
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],

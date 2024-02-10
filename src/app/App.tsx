@@ -1,10 +1,10 @@
-import './App.css';
+import Router from './Router';
+import './fonts/fonts.css';
 
 function App() {
   return (
-    <div className="flex">
-      <div className="w-96 bg-bg-brand">12</div>
-      <div>13</div>
+    <div className={'App'}>
+      <Router />
     </div>
   );
 }

@@ -1,0 +1,18 @@
+.page {
+  background-image: url(../../shared/assets/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 1 0 auto;
+  padding-top: 100px;
+}
+
+.page__body {
+  gap: 40px;
+  display: flex;
+}
+
+.page__img {
+  img {
+    max-width: 100%;
+  }
+}
