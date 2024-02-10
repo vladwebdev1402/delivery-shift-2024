@@ -6,6 +6,7 @@ import Select from './select/Select';
 import SelectItem from './select/SelectItem';
 import SelectSubitem from './select/SelectSubitem';
 import Skeleton from './skeleton/Skeleton';
+import Stepper from './stepper/Stepper';
 import Tab from './tab/Tab';
 import TabsGroup from './tab/TabsGroup';
 
@@ -20,4 +21,5 @@ export {
   Loader,
   Button,
   Input,
+  Stepper,
 };

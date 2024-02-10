@@ -22,7 +22,7 @@ const FirtStep: FC<FirtStepProps> = ({ nextStep }) => {
   };
 
   return (
-    <div className={`container`}>
+    <div>
       <h2>Способ отправки</h2>
       <div className={st.step__body}>
         {options.map((option) => (

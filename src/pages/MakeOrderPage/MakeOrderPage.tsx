@@ -1,3 +1,5 @@
+import { Stepper } from '@/shared/ui';
+
 import st from './MakeOrderPage.module.scss';
 import { FirtStep } from './components/FirstStep';
 import { SecondaryStep } from './components/SecondaryStep';
@@ -8,7 +10,8 @@ const MakeOrderPage = () => {
   const { step, nextStep, prevStep } = useStep();
 
   return (
-    <div className={st.page}>
+    <div className={`container ${st.page}`}>
+      <Stepper count={6} current={step} className={st.page__stepper} />
       {step === 1 && <FirtStep nextStep={nextStep} />}
       {step === 2 && <SecondaryStep nextStep={nextStep} prevStep={prevStep} />}
       {step === 3 && <ThirdStep nextStep={nextStep} prevStep={prevStep} />}
