@@ -1,10 +1,12 @@
-.step {
-    margin-top: 48px;
+.step__body {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-.step__body {
-    margin-top: 24px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+@media (max-width: 768px) {
+    .step__body {
+        grid-template-columns: 1fr;
+    }
 }

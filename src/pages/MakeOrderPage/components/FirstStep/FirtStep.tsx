@@ -1,9 +1,10 @@
+import { setOption } from '@/service/MakeOrder';
 import { Delivery } from '@/types';
 import { FC } from 'react';
 
 import DeliveryOption from '@/components/DeliveryOption/DeliveryOption';
 
-import { useAppSelector } from '@/shared/store';
+import { useAppDispatch, useAppSelector } from '@/shared/store';
 
 import st from './FirstStep.module.scss';
 
@@ -13,13 +14,15 @@ interface FirtStepProps {
 
 const FirtStep: FC<FirtStepProps> = ({ nextStep }) => {
   const { options } = useAppSelector((state) => state.DeliveryOptionsReducer);
+  const dispatch = useAppDispatch();
 
   const clickDelivery = (delivery: Delivery) => {
-    console.log(delivery);
+    dispatch(setOption(delivery));
+    nextStep();
   };
 
   return (
-    <div className={`container ${st.step}`}>
+    <div className={`container`}>
       <h2>Способ отправки</h2>
       <div className={st.step__body}>
         {options.map((option) => (
