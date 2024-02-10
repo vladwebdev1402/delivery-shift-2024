@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { MainPage } from '@/pages/MainPage';
+import { MakeOrderPage } from '@/pages/MakeOrderPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 
 import { ROUTER_PATHS } from '@/shared/constants';
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Root />}>
       <Route index element={<MainPage />} />
       <Route path={ROUTER_PATHS.profile} element={<ProfilePage />} />
+      <Route path={ROUTER_PATHS.makeOrder} element={<MakeOrderPage />} />
     </Route>
   )
 );

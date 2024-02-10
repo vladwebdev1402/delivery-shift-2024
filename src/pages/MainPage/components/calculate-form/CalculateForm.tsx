@@ -1,10 +1,15 @@
+import { setDeliveryOptions } from '@/service/DeliveryOptions';
 import {
   useCalcDeliveryMutation,
   useGetPackageTypesQuery,
   useGetPointsQuery,
 } from '@/service/DeliveryService';
+import { setReceiverPoint, setSenderPoint } from '@/service/MakeOrder';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
+import { ROUTER_PATHS } from '@/shared/constants';
+import { useAppDispatch } from '@/shared/store';
 import { Button } from '@/shared/ui';
 
 import st from './CalculateForm.module.scss';
@@ -21,7 +26,8 @@ const CalculateForm = () => {
   const [calcDelivery, { isLoading: isCalcLoading }] =
     useCalcDeliveryMutation();
   const { handleSubmit, watch, control, setValue } = useForm<CalculateValues>();
-
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const setExactPackage = (data: PackageValues) => {
     setValue('length', data.length);
     setValue('weight', data.weight);
@@ -47,7 +53,7 @@ const CalculateForm = () => {
     }
   };
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     const senderPoint = points?.points.find(
       (point) => point.id === data.startCity
     );
@@ -55,7 +61,7 @@ const CalculateForm = () => {
       (point) => point.id === data.endCity
     );
     if (senderPoint && receiverPoint) {
-      calcDelivery({
+      const response = await calcDelivery({
         package: {
           height: +watch('height'),
           length: +watch('length'),
@@ -65,6 +71,11 @@ const CalculateForm = () => {
         senderPoint,
         receiverPoint,
       });
+      if ('data' in response)
+        dispatch(setDeliveryOptions(response.data.options));
+      dispatch(setSenderPoint(senderPoint));
+      dispatch(setReceiverPoint(receiverPoint));
+      navigate(ROUTER_PATHS.makeOrder);
     }
   });
 
