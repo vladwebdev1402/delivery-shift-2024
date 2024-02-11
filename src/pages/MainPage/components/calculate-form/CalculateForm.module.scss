@@ -44,3 +44,10 @@
 .size__btn {
     margin-top: 16px;
 }
+
+@media (max-width: 992px) {
+    .calculate {
+        padding: 32px 24px;
+        flex-shrink: 0;
+    }
+}

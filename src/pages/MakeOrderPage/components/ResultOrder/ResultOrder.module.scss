@@ -54,3 +54,9 @@
   max-width: 328px;
   display: block;
 }
+
+@media (max-width: 568px) {
+  .result__btn {
+    max-width: 100%;
+  }
+}
