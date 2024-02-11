@@ -1,0 +1,32 @@
+.result__body {
+  margin-top: 24px;
+}
+
+.result__item {
+  margin-top: 24px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.result__info {
+  text-align: right;
+  margin-top: 36px;
+}
+
+.result__desc {
+  margin-top: 16px;
+  color: rgba(52, 64, 81, 1);
+}
+
+.result__options {
+  margin-top: 52px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.result__btn {
+  max-width: 328px;
+}

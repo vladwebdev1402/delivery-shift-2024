@@ -1,0 +1,37 @@
+.input {
+  display: block;
+  cursor: pointer;
+  input {
+    display: none;
+    &:checked + .text::after {
+      background-color: var(--brand);
+      border: 1px solid transparent;
+      background-image: url(../../../assets/checkmark.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 12px 10px;
+    }
+  }
+}
+
+.text {
+  user-select: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 36px;
+  position: relative;
+  line-height: 24px;
+  transition: 0.3s;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s;
+  }
+}

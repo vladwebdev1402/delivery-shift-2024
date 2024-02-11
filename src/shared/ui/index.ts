@@ -1,5 +1,6 @@
 import Button from './button/Button';
-import Input from './input/Input';
+import Input from './input/Input/Input';
+import InputRadio from './input/InputRadio/InputRadio';
 import HeaderLink from './link/HeaderLink/HeaderLink';
 import Loader from './loader/Loader';
 import Select from './select/Select';
@@ -21,5 +22,6 @@ export {
   Loader,
   Button,
   Input,
+  InputRadio,
   Stepper,
 };
