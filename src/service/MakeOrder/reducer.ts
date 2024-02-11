@@ -51,6 +51,16 @@ const MakeOrderSlice = createSlice({
     setOption: (state, action: PayloadAction<Delivery>) => {
       state.option = action.payload;
     },
+    clearAllMakeOrder: (state) => {
+      state.option = null;
+      state.payer = null;
+      state.receiver = null;
+      state.receiverAddress = null;
+      state.receiverPoint = null;
+      state.sender = null;
+      state.senderAddress = null;
+      state.senderPoint = null;
+    }
   },
 });
 
@@ -64,4 +74,5 @@ export const {
   setSender,
   setSenderAddress,
   setSenderPoint,
+  clearAllMakeOrder,
 } = MakeOrderSlice.actions;

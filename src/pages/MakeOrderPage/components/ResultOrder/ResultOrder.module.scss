@@ -30,3 +30,27 @@
 .result__btn {
   max-width: 328px;
 }
+
+.modal__img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+.modal__title {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.modal__description {
+  margin-top: 16px;
+  font-size: 18px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.modal__btn {
+  margin: 40px auto 0;
+  max-width: 328px;
+  display: block;
+}

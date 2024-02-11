@@ -3,6 +3,7 @@ import Input from './input/Input/Input';
 import InputRadio from './input/InputRadio/InputRadio';
 import HeaderLink from './link/HeaderLink/HeaderLink';
 import Loader from './loader/Loader';
+import Modal from './modal/Modal';
 import Select from './select/Select';
 import SelectItem from './select/SelectItem';
 import SelectSubitem from './select/SelectSubitem';
@@ -24,4 +25,5 @@ export {
   Input,
   InputRadio,
   Stepper,
+  Modal,
 };

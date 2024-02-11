@@ -5,6 +5,8 @@ import { API_URL } from '@/shared/constants';
 import {
   CalcDeliveryRequest,
   CalcDeliveryResponse,
+  CreateOrderRequest,
+  CreateOrderResponse,
   GetPackageTypesResponse,
   GetPointsResponse,
 } from './types';
@@ -26,6 +28,13 @@ const DeliveryService = createApi({
         body: { ...delivery },
       }),
     }),
+    createOrder: build.mutation<CreateOrderResponse, CreateOrderRequest>({
+      query: (order) => ({
+        url: '/delivery/order',
+        method: 'POST',
+        body: { ...order },
+      }),
+    }),
   }),
 });
 
@@ -35,4 +44,5 @@ export const {
   useGetPointsQuery,
   useGetPackageTypesQuery,
   useCalcDeliveryMutation,
+  useCreateOrderMutation,
 } = DeliveryService;

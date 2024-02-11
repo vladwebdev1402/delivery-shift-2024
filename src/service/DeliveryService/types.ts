@@ -1,4 +1,4 @@
-import { Delivery, Package } from '@/types';
+import { Address, Delivery, Order, Package, TPayer, User } from '@/types';
 import { Point } from '@/types/Point';
 
 export interface GetPointsResponse {
@@ -34,4 +34,21 @@ export interface CalcDeliveryResponse {
   success: boolean;
   reason: string;
   options: Delivery[];
+}
+
+export interface CreateOrderRequest {
+  senderPoint: Point,
+  senderAddress: Address,
+  sender: User,
+  receiverPoint: Point,
+  receiverAddress: Address,
+  receiver: User,
+  payer: TPayer,
+  option: Delivery,
+}
+
+export interface CreateOrderResponse {
+  success: boolean;
+  reason: string;
+  order: Order;
 }
