@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 import { Header } from '@/components/Header';
+import { MobileNav } from '@/components/MobileNav';
 
 const Root = () => {
   return (
@@ -9,6 +10,7 @@ const Root = () => {
       <main>
         <Outlet />
       </main>
+      <MobileNav />
     </>
   );
 };
