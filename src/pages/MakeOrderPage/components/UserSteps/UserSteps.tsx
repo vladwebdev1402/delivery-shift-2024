@@ -16,6 +16,7 @@ interface SecondaryStepProps {
 }
 
 const UserSteps: FC<SecondaryStepProps> = ({ step, nextStep, prevStep }) => {
+  const { user } = useAppSelector((state) => state.AuthReducer);
   const { sender, receiver } = useAppSelector(
     (state) => state.MakeOrderReducer
   );
@@ -34,7 +35,7 @@ const UserSteps: FC<SecondaryStepProps> = ({ step, nextStep, prevStep }) => {
         {step === 3 && 'Отправитель'}
       </h2>
       <UserForm
-        defaultValue={step === 2 ? receiver : sender}
+        defaultValue={step === 2 ? receiver : sender || user}
         className={st.step__body}
         onSubmit={handleSubmit}
         updateTrigger={step}>
