@@ -1,0 +1,26 @@
+.order {
+    padding: 24px 48px;
+    border-radius: 24px;
+    border: 1px solid var(--border-extra-light)
+}
+.order__item {
+    margin-top: 24px;
+    &:first-child {
+        margin-top: 0px;
+    }
+}
+.order__title{
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--text-tertiary);
+}
+.order__value {
+    margin-top: 2px;
+    line-height: 24px;
+}
+.order__btn {
+    text-decoration: underline;
+    color: var(--text-quartenery);
+    padding: 0;
+    margin-top: 24px;
+}

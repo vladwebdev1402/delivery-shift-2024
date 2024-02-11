@@ -11,7 +11,7 @@ import Skeleton from './skeleton/Skeleton';
 import Stepper from './stepper/Stepper';
 import Tab from './tab/Tab';
 import TabsGroup from './tab/TabsGroup';
-
+import OrderStatus from './orderStatus/OrderStatus';
 export {
   HeaderLink,
   Select,
@@ -26,4 +26,5 @@ export {
   InputRadio,
   Stepper,
   Modal,
+  OrderStatus
 };

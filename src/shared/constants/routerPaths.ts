@@ -5,4 +5,6 @@ export const ROUTER_PATHS = {
   profile: root + '/profile',
   story: root + '/story',
   makeOrder: root + '/make',
+  orderDetail: root + '/story/{:id}',
+  navOrderDetail: (id: string) => root + `/story/${id},`,
 };

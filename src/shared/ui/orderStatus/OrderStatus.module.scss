@@ -1,0 +1,24 @@
+.status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status__indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}
+
+.status_received {
+    .status__indicator {
+        background-color: var(--indicator-attention);
+    }
+} 
+
+.status_delivered {
+  .status__indicator {
+      background-color: var(--indicator-positive);
+  }
+} 
+

@@ -52,3 +52,10 @@ export interface CreateOrderResponse {
   reason: string;
   order: Order;
 }
+
+export interface GetOrdersResponse {
+  success: boolean;
+  reason: string;
+  orders: Order[];
+}
+

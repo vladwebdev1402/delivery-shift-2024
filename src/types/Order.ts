@@ -1,6 +1,4 @@
-import { Address } from 'cluster';
-
-import { Point, TPayer, User } from '.';
+import { Point, TPayer, User, Address } from '.';
 
 export interface Order {
   _id: string;

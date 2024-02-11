@@ -8,6 +8,7 @@ import {
 import { MainPage } from '@/pages/MainPage';
 import { MakeOrderPage } from '@/pages/MakeOrderPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import { StoryPage } from '@/pages/StoryPage';
 
 import { ROUTER_PATHS } from '@/shared/constants';
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route index element={<MainPage />} />
       <Route path={ROUTER_PATHS.profile} element={<ProfilePage />} />
       <Route path={ROUTER_PATHS.makeOrder} element={<MakeOrderPage />} />
+      <Route path={ROUTER_PATHS.story} element={<StoryPage />} />
     </Route>
   )
 );
