@@ -1,9 +1,14 @@
 import { User } from '@/types';
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Input } from '@/shared/ui';
-import { onChangeWithRegexp } from '@/shared/utils';
+import {
+  endUserSpecialCharacter,
+  onChangeWithRegexp,
+  startUserSpecialCharacter,
+  validateAlphabet,
+} from '@/shared/utils';
 
 import st from './UserForm.module.scss';
 
@@ -12,6 +17,7 @@ interface UserFormProps extends PropsWithChildren {
   onSubmit: (data: User) => void;
   disabledPhone?: boolean;
   className?: string;
+  updateTrigger?: number;
 }
 
 const UserForm: FC<UserFormProps> = ({
@@ -20,6 +26,7 @@ const UserForm: FC<UserFormProps> = ({
   children,
   disabledPhone = false,
   className = '',
+  updateTrigger = 0,
 }) => {
   const {
     formState: { errors },
@@ -31,6 +38,13 @@ const UserForm: FC<UserFormProps> = ({
     defaultValues: defaultValue || {},
   });
 
+  useEffect(() => {
+    setValue('firstname', defaultValue?.firstname || '');
+    setValue('lastname', defaultValue?.lastname || '');
+    setValue('middlename', defaultValue?.middlename || '');
+    setValue('phone', defaultValue?.phone || '');
+  }, [defaultValue, updateTrigger, setValue]);
+
   return (
     <form
       onSubmit={handleSubmit((data) => onSubmit(data))}
@@ -41,12 +55,10 @@ const UserForm: FC<UserFormProps> = ({
         placeholder="Иван"
         className={st.input}
         {...register('firstname', {
-          pattern: {
-            value:
-              /^(?:[А-Яа-я `'-]{1,60}[А-Яа-я]|[A-Za-z `'-]{1,60}[A-Za-z])$/,
-            message:
-              'Значение должно быть задано с использованием одного из следующих алфавитов:\
-                кириллического, латинского. И не должно оканчиваться на спецсимвол',
+          validate: {
+            validateAlphabet,
+            endUserSpecialCharacter,
+            startUserSpecialCharacter,
           },
           required: 'Поле необходимо обязательно заполнить',
         })}
@@ -62,14 +74,12 @@ const UserForm: FC<UserFormProps> = ({
         placeholder="Иванов"
         className={st.input}
         {...register('lastname', {
-          pattern: {
-            value:
-              /^(?:[А-Яа-я `'-]{1,60}[А-Яа-я]|[A-Za-z `'-]{1,60}[A-Za-z])$/,
-            message:
-              'Значение должно быть задано с использованием одного из следующих алфавитов:\
-                кириллического, латинского. И не должно оканчиваться на спецсимвол',
-          },
           required: 'Поле необходимо обязательно заполнить',
+          validate: {
+            validateAlphabet,
+            endUserSpecialCharacter,
+            startUserSpecialCharacter,
+          },
         })}
         onChange={onChangeWithRegexp(/^[A-Za-zА-Яа-я `'-]{0,60}$/, (value) =>
           setValue('lastname', value)
@@ -83,12 +93,10 @@ const UserForm: FC<UserFormProps> = ({
         placeholder="Иванович"
         className={st.input}
         {...register('middlename', {
-          pattern: {
-            value:
-              /^(?:[А-Яа-я `'-]{1,60}[А-Яа-я]|[A-Za-z `'-]{1,60}[A-Za-z])$/,
-            message:
-              'Значение должно быть задано с использованием одного из следующих алфавитов:\
-              кириллического, латинского. И не должно оканчиваться на спецсимвол',
+          validate: {
+            validateAlphabet,
+            endUserSpecialCharacter,
+            startUserSpecialCharacter,
           },
         })}
         onChange={onChangeWithRegexp(/^[A-Za-zА-Яа-я `'-]{0,60}$/, (value) =>

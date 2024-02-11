@@ -1,35 +1,43 @@
-import { setSender } from '@/service/MakeOrder';
+import { setReceiver, setSender } from '@/service/MakeOrder';
 import { User } from '@/types';
 import { FC } from 'react';
 
-import UserForm from '@/components/UserForm/UserForm';
+import { UserForm } from '@/components/UserForm';
 
 import { useAppDispatch, useAppSelector } from '@/shared/store';
 import { Button } from '@/shared/ui';
 
-import st from './SecondaryStep.module.scss';
+import st from './UserSteps.module.scss';
 
 interface SecondaryStepProps {
   nextStep: () => void;
   prevStep: () => void;
+  step: number;
 }
 
-const SecondaryStep: FC<SecondaryStepProps> = ({ nextStep, prevStep }) => {
-  const { sender } = useAppSelector((state) => state.MakeOrderReducer);
+const UserSteps: FC<SecondaryStepProps> = ({ step, nextStep, prevStep }) => {
+  const { sender, receiver } = useAppSelector(
+    (state) => state.MakeOrderReducer
+  );
   const dispatch = useAppDispatch();
 
   const handleSubmit = (data: User) => {
-    dispatch(setSender(data));
+    if (step === 2) dispatch(setReceiver(data));
+    else dispatch(setSender(data));
     nextStep();
   };
 
   return (
-    <div className={`container`}>
-      <h2>Отправитель</h2>
+    <div>
+      <h2>
+        {step === 2 && 'Получатель'}
+        {step === 3 && 'Отправитель'}
+      </h2>
       <UserForm
-        defaultValue={sender}
+        defaultValue={step === 2 ? receiver : sender}
         className={st.step__body}
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+        updateTrigger={step}>
         <div className={st.step__options}>
           <Button variant="outlined" fullWidth type="button" onClick={prevStep}>
             Назад
@@ -43,4 +51,4 @@ const SecondaryStep: FC<SecondaryStepProps> = ({ nextStep, prevStep }) => {
   );
 };
 
-export default SecondaryStep;
+export default UserSteps;
