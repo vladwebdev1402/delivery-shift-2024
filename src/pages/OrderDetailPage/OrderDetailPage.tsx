@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 import { ResultOrderCard } from '@/components/ResultOrderCard';
 
+import { TokenService } from '@/shared/api';
 import QuestionImg from '@/shared/assets/question.jpg';
 import { Button, Modal } from '@/shared/ui';
 
@@ -16,7 +17,7 @@ import OrderSkeletons from './OrderSkeletons';
 const OrderDetailPage = () => {
   const params = useParams<{ id: string }>();
 
-  const { isLoading, data } = useGetOrdersQuery();
+  const { isLoading, data } = useGetOrdersQuery(TokenService.getToken());
 
   const [isOpen, setIsOpen] = useState(false);
 
