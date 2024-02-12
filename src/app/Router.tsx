@@ -17,7 +17,7 @@ import Root from './Root';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />}>
+    <Route path={ROUTER_PATHS.main} element={<Root />}>
       <Route index element={<MainPage />} />
       <Route path={ROUTER_PATHS.profile} element={<ProfilePage />} />
       <Route path={ROUTER_PATHS.makeOrder} element={<MakeOrderPage />} />

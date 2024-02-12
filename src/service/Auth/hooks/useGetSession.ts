@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/shared/store';
 
-import { setUser, useLazyGetSessionQuery } from '..';
+import { logout, setUser, useLazyGetSessionQuery } from '..';
 
 export const useGetSession = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +16,7 @@ export const useGetSession = () => {
 
       if (response.data) {
         dispatch(setUser(response.data.user));
-      }
+      } else dispatch(logout());
     };
 
     if (isAuth && !user) onGetSession();
