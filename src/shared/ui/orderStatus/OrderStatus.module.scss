@@ -21,4 +21,9 @@
       background-color: var(--indicator-positive);
   }
 } 
+.status_cancelled {
+  .status__indicator {
+    background-color: var(--indicator-error);
+  }
+}
 

@@ -1,0 +1,45 @@
+.detail {
+  margin-top: 48px;
+  padding-bottom: 100px;
+}
+
+.detail__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.skeleton {
+  height: 150px;
+}
+
+.detail__btn {
+  margin: 24px auto 0;
+  max-width: 320px;
+  display: block;
+}
+
+.modal__img {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+.modal__body {
+  max-width: 328px;
+  margin: 0 auto;
+}
+
+.modal__title {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.modal__options {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+

@@ -11,6 +11,7 @@ const OrderStatus: FC<OrderStatusProps> = ({ status, className = '' }) => {
   const statusClasses = classNames(className, st.status, {
     [st.status_received]: status === 0,
     [st.status_delivered]: status === 1,
+    [st.status_cancelled]: status === 4,
   });
 
   return (
@@ -19,6 +20,7 @@ const OrderStatus: FC<OrderStatusProps> = ({ status, className = '' }) => {
       <div>
         {status === 0 && 'Заказ собирается'}
         {status === 1 && 'Заказ доставлен'}
+        {status === 4 && 'Заказ отменён'}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import st from './ResultOrderCard.module.scss';
 
 interface ResultOrderCardProps {
   title: string;
-  onEdit: () => void;
+  onEdit?: () => void;
   values: { name: string; value: string }[];
   className?: string;
 }
@@ -21,9 +21,11 @@ const ResultOrderCard: FC<ResultOrderCardProps> = ({
     <div className={`${className} ${st.result}`}>
       <div className={st.result__title}>
         {title}
-        <button className={st.result__edit} onClick={onEdit}>
-          <EditIcon />
-        </button>
+        {onEdit && (
+          <button className={st.result__edit} onClick={onEdit}>
+            <EditIcon />
+          </button>
+        )}
       </div>
       <div className={st.result__body}>
         {values.map((item) => (

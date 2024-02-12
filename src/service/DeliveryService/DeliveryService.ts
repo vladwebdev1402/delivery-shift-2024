@@ -35,7 +35,7 @@ const DeliveryService = createApi({
         body: { ...delivery },
       }),
     }),
-    getOrders: build.query<GetOrdersResponse, void>({
+    getOrders: build.query<GetOrdersResponse, string>({
       query: () => '/delivery/orders',
     }),
     createOrder: build.mutation<CreateOrderResponse, CreateOrderRequest>({
@@ -44,20 +44,41 @@ const DeliveryService = createApi({
         method: 'POST',
         body: { ...order },
       }),
-      onQueryStarted: async (arg, { dispatch, queryFulfilled }) => {
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
         try {
           const { data } = await queryFulfilled;
 
           dispatch(
             DeliveryService.util.updateQueryData(
               'getOrders',
-              undefined,
+              TokenService.getToken(),
               (draft) => {
                 draft.orders.push(data.order);
               }
             )
           );
         } catch {}
+      },
+    }),
+    cancelOrder: build.mutation<void, string>({
+      query: (orderId) => ({
+        url: '/delivery/orders/cancel',
+        method: 'PUT',
+        body: { orderId },
+      }),
+      onQueryStarted: (orderId, { dispatch, queryFulfilled }) => {
+        const patchResult = dispatch(
+          DeliveryService.util.updateQueryData(
+            'getOrders',
+            TokenService.getToken(),
+            (draft) => {
+              const order = draft.orders.find((order) => order._id === orderId);
+              if (order) order.status = 4;
+            }
+          )
+        );
+
+        queryFulfilled.catch(patchResult.undo);
       },
     }),
   }),
@@ -71,4 +92,5 @@ export const {
   useCalcDeliveryMutation,
   useCreateOrderMutation,
   useGetOrdersQuery,
+  useCancelOrderMutation,
 } = DeliveryService;

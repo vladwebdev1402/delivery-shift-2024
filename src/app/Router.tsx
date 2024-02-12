@@ -7,6 +7,7 @@ import {
 
 import { MainPage } from '@/pages/MainPage';
 import { MakeOrderPage } from '@/pages/MakeOrderPage';
+import { OrderDetailPage } from '@/pages/OrderDetailPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { StoryPage } from '@/pages/StoryPage';
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
       <Route path={ROUTER_PATHS.profile} element={<ProfilePage />} />
       <Route path={ROUTER_PATHS.makeOrder} element={<MakeOrderPage />} />
       <Route path={ROUTER_PATHS.story} element={<StoryPage />} />
+      <Route path={ROUTER_PATHS.orderDetail} element={<OrderDetailPage />} />
     </Route>
   )
 );
