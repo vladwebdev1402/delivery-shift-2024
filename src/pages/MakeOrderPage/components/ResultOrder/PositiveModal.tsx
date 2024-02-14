@@ -19,7 +19,7 @@ const PositiveModal: FC<PositiveModalProps> = ({ handleClose, isOpen }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const onGoStatus = () => {
-    navigate(ROUTER_PATHS.profile);
+    navigate(ROUTER_PATHS.story);
     dispatch(clearAllMakeOrder());
     dispatch(clearDeliveryOptions());
   };

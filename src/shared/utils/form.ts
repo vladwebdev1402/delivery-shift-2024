@@ -1,7 +1,11 @@
-export const validateAlphabet = (value: string) =>
-  (/[A-Za-z]/.test(value) && !/[А-Яа-я]/.test(value)) ||
-  (!/[A-Za-z]/.test(value) && /[А-Яа-я]/.test(value)) || !value ||
-  'Значение должно быть задано с использованием одного из следующих алфавитов: кириллического, латинского';
+export const validateAlphabet = (value: string) => {
+  const eng = /[A-Za-z]/;
+  const ru = /[А-Яа-я]/;
+
+  if (eng.test(value) && ru.test(value))
+    return 'Значение должно быть задано с использованием одного из следующих алфавитов: кириллического, латинского';
+  return true;
+};
 
 export const endAddressSpecialCharacter = (value: string) =>
   !/[““""',/`‘:;\-_.,#]$/.test(value) ||

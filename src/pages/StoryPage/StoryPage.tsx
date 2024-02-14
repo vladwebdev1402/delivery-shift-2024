@@ -36,9 +36,9 @@ const StoryPage = () => {
       <div className={st.story__body}>
         {isLoading && <StorySkeletons />}
         {data &&
-          data.orders.map((order) => (
-            <OrderCard key={order._id} order={order} />
-          ))}
+          [...data.orders]
+            .sort((a, b) => a.status - b.status)
+            .map((order) => <OrderCard key={order._id} order={order} />)}
         {data && data.orders.length === 0 && (
           <h3>Ваши заказы не были найдены. Оформите заказ.</h3>
         )}
